@@ -37,7 +37,8 @@ try:
     back_from_function = get_fruityvice_data(fruit_choice) 
     streamlit.dataframe(back_from_function)
 
-#except URLError as e: streamlit.stop()
+except URLError as e: 
+streamlit.stop()
 
 #connector to snowflake
 def get_fruit_load_list():
