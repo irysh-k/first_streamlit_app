@@ -38,7 +38,7 @@ try:
     streamlit.dataframe(back_from_function)
 
 except URLError as e: 
-streamlit.stop()
+  streamlit.stop()
 
 #connector to snowflake
 def get_fruit_load_list():
