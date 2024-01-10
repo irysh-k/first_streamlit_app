@@ -37,10 +37,10 @@ try:
     back_from_function = get_fruityvice_data(fruit_choice) 
     streamlit.dataframe(back_from_function)
 
-#connector to snowflake
+streamlit.header("The fruit load list contains:")
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
-    my_cur.execute("SELECT * from fruit_load_list")
+    my_cur.execute("select * from fruit_load_list")
     return my_cur.fetchall()
 
 if streamlit.button('Get Fruit Load List'):
@@ -48,10 +48,5 @@ if streamlit.button('Get Fruit Load List'):
   my_data_rows = get_fruit_load_list()
   streamlit.dataframe(my_data_rows)
 
-streamlit.header("The fruit load list contains:")
-
-
 add_my_fruit = streamlit.text_input("What fruit would you like to add?", 'jackfruit')
 streamlit.text("Thanks for adding ", add_my_fruit)
-
-#my_cur.execute("insert into fruit_load_list values('from streamlit')")
